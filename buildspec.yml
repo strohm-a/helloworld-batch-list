@@ -1,0 +1,35 @@
+version: 0.2
+
+batch:
+  fast-fail: false
+  build-list:
+    - identifier: linux_small
+      env:
+        compute-type: BUILD_GENERAL1_SMALL
+    - env:
+        compute-type: BUILD_GENERAL1_SMALL
+      identifier: linux_small_2
+    - identifier: linux_medium
+      env:
+        compute-type: BUILD_GENERAL1_MEDIUM
+    - identifier: linux_large
+      env:
+        compute-type: BUILD_GENERAL1_LARGE
+
+phases:
+  install:
+    runtime-versions:
+      golang: 1.13
+  pre_build:
+    commands:
+      - echo 'prebuild'
+  build:
+    commands:
+      - echo 'Compiling the Java Code'
+      - javac -cp . HelloWorld.java
+  post_build:
+    commands:
+      - echo "Would deploy here"
+artifacts:
+  files:
+    - 'HelloWorld.class'
