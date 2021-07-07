@@ -7,12 +7,13 @@ batch:
       env:
         variables:
           BUILD_ID: build1
-      ignore-failure: true
+      ignore-failure: false
     - identifier: build2
       buildspec: build2.yml
       env:
         variables:
           BUILD_ID: build2
+      ignore-failure: true
 
 env:
   compute-type: BUILD_GENERAL1_SMALL
