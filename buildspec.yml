@@ -21,4 +21,4 @@ phases:
     commands:
       - printenv
       - echo 'Running default build'
-      - echo 'BUILD_ID = '$BUILD_ID
+      - echo 'BUILD_ID =' $BUILD_ID

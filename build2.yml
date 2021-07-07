@@ -5,4 +5,4 @@ phases:
     commands:
       - printenv
       - echo 'Running separate buildspec'
-      - echo 'BUILD_ID = '$BUILD_ID
+      - echo 'BUILD_ID =' $BUILD_ID
