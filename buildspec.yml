@@ -3,32 +3,22 @@ version: 0.2
 batch:
   fast-fail: false
   build-list:
-    - identifier: linux_small
+    - identifier: build1
       env:
-        compute-type: BUILD_GENERAL1_SMALL
-      identifier: linux_small_2
-    - identifier: linux_medium
+        variables:
+          BUILD_ID: build1
+    - identifier: build2
+      buildspec: build2.yml
       env:
-        compute-type: BUILD_GENERAL1_MEDIUM
-    - identifier: linux_large
-      ignore-failure: true
-      env:
-        compute-type: BUILD_GENERAL1_LARGE
+        variables:
+          BUILD_ID: build2
+
+env:
+  compute-type: BUILD_GENERAL1_SMALL
 
 phases:
-  install:
-    runtime-versions:
-      golang: 1.13
-  pre_build:
-    commands:
-      - echo 'prebuild'
   build:
     commands:
-      - echo 'Compiling the Java Code'
-      - javac -cp . HelloWorld.java
-  post_build:
-    commands:
-      - echo "Would deploy here"
-artifacts:
-  files:
-    - 'HelloWorld.class'
+      - printenv
+      - echo 'Running default build'
+      - echo 'BUILD_ID =' $BUILD_ID
