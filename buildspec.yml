@@ -22,3 +22,5 @@ phases:
       - printenv
       - echo 'Running default build'
       - echo 'BUILD_ID =' $BUILD_ID
+      - echo 'Fail the build'
+      - exit 1
