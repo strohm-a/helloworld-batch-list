@@ -22,6 +22,8 @@ phases:
       # - printenv
       - echo 'Running default build'
       - echo 'BUILD_ID =' $BUILD_ID
+      - pwd
+      - cd $CODEBUILD_SRC_DIR
       - git status
       - git rev-parse --abbrev-ref HEAD
       - export CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
