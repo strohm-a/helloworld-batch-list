@@ -19,8 +19,10 @@ env:
 phases:
   build:
     commands:
-      - printenv
+      # - printenv
       - echo 'Running default build'
       - echo 'BUILD_ID =' $BUILD_ID
+      - git status
+      - git rev-parse --abbrev-ref HEAD
       - export CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
       - echo 'CURRENT_BRANCH =' $CURRENT_BRANCH
