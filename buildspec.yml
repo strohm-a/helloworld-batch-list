@@ -23,6 +23,5 @@ phases:
       - echo 'BUILD_ID =' $BUILD_ID
       - printenv
       - git status
-      - git rev-parse --abbrev-ref HEAD
       - export CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
       - echo 'CURRENT_BRANCH =' $CURRENT_BRANCH
